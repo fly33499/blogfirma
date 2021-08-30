@@ -1,0 +1,12 @@
+syntax = "proto3";
+package fly33499.blogfirma.blogfirma;
+
+// this line is used by starport scaffolding # genesis/proto/import
+
+option go_package = "github.com/fly33499/blogfirma/x/blogfirma/types";
+
+// GenesisState defines the blogfirma module's genesis state.
+message GenesisState {
+    // this line is used by starport scaffolding # genesis/proto/state
+    // this line is used by starport scaffolding # ibc/genesis/proto
+}
