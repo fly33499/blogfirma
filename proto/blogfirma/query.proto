@@ -4,12 +4,68 @@ package fly33499.blogfirma.blogfirma;
 import "google/api/annotations.proto";
 import "cosmos/base/query/v1beta1/pagination.proto";
 // this line is used by starport scaffolding # 1
+import "blogfirma/maplo.proto";
+import "blogfirma/hello.proto";
 
 option go_package = "github.com/fly33499/blogfirma/x/blogfirma/types";
 
 // Query defines the gRPC querier service.
 service Query {
     // this line is used by starport scaffolding # 2
+
+	// Queries a maplo by index.
+	rpc Maplo(QueryGetMaploRequest) returns (QueryGetMaploResponse) {
+		option (google.api.http).get = "/fly33499/blogfirma/blogfirma/maplo/{index}";
+	}
+
+	// Queries a list of maplo items.
+	rpc MaploAll(QueryAllMaploRequest) returns (QueryAllMaploResponse) {
+		option (google.api.http).get = "/fly33499/blogfirma/blogfirma/maplo";
+	}
+
+
+	// Queries a hello by id.
+	rpc Hello(QueryGetHelloRequest) returns (QueryGetHelloResponse) {
+		option (google.api.http).get = "/fly33499/blogfirma/blogfirma/hello/{id}";
+	}
+
+	// Queries a list of hello items.
+	rpc HelloAll(QueryAllHelloRequest) returns (QueryAllHelloResponse) {
+		option (google.api.http).get = "/fly33499/blogfirma/blogfirma/hello";
+	}
+
 }
 
 // this line is used by starport scaffolding # 3
+message QueryGetMaploRequest {
+	string index = 1;
+}
+
+message QueryGetMaploResponse {
+	Maplo Maplo = 1;
+}
+
+message QueryAllMaploRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllMaploResponse {
+	repeated Maplo Maplo = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}
+message QueryGetHelloRequest {
+	uint64 id = 1;
+}
+
+message QueryGetHelloResponse {
+	Hello Hello = 1;
+}
+
+message QueryAllHelloRequest {
+	cosmos.base.query.v1beta1.PageRequest pagination = 1;
+}
+
+message QueryAllHelloResponse {
+	repeated Hello Hello = 1;
+	cosmos.base.query.v1beta1.PageResponse pagination = 2;
+}

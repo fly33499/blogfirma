@@ -1,0 +1,13 @@
+syntax = "proto3";
+package fly33499.blogfirma.blogfirma;
+
+option go_package = "github.com/fly33499/blogfirma/x/blogfirma/types";
+
+import "gogoproto/gogo.proto";
+
+message Maplo {
+  string creator = 1;
+  string index = 2;
+  string title = 3; 
+  string body = 4; 
+}

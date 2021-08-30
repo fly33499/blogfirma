@@ -24,3 +24,12 @@ const (
 func KeyPrefix(p string) []byte {
 	return []byte(p)
 }
+
+const (
+	HelloKey      = "Hello-value-"
+	HelloCountKey = "Hello-count-"
+)
+
+const (
+	MaploKey = "Maplo-value-"
+)

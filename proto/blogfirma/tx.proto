@@ -2,12 +2,67 @@ syntax = "proto3";
 package fly33499.blogfirma.blogfirma;
 
 // this line is used by starport scaffolding # proto/tx/import
+import "blogfirma/maplo.proto";
+import "blogfirma/hello.proto";
 
 option go_package = "github.com/fly33499/blogfirma/x/blogfirma/types";
 
 // Msg defines the Msg service.
 service Msg {
     // this line is used by starport scaffolding # proto/tx/rpc
+  rpc CreateMaplo(MsgCreateMaplo) returns (MsgCreateMaploResponse);
+  rpc UpdateMaplo(MsgUpdateMaplo) returns (MsgUpdateMaploResponse);
+  rpc DeleteMaplo(MsgDeleteMaplo) returns (MsgDeleteMaploResponse);
+  rpc CreateHello(MsgCreateHello) returns (MsgCreateHelloResponse);
+  rpc UpdateHello(MsgUpdateHello) returns (MsgUpdateHelloResponse);
+  rpc DeleteHello(MsgDeleteHello) returns (MsgDeleteHelloResponse);
 }
 
 // this line is used by starport scaffolding # proto/tx/message
+message MsgCreateMaplo {
+  string creator = 1;
+  string index = 2;
+  string title = 3;
+  string body = 4;
+}
+message MsgCreateMaploResponse { }
+
+message MsgUpdateMaplo {
+  string creator = 1;
+  string index = 2;
+  string title = 3;
+  string body = 4;
+}
+message MsgUpdateMaploResponse { }
+
+message MsgDeleteMaplo {
+  string creator = 1;
+  string index = 2;
+}
+message MsgDeleteMaploResponse { }
+
+message MsgCreateHello {
+  string creator = 1;
+  string title = 2;
+  string body = 3;
+}
+
+message MsgCreateHelloResponse {
+  uint64 id = 1;
+}
+
+message MsgUpdateHello {
+  string creator = 1;
+  uint64 id = 2;
+  string title = 3;
+  string body = 4;
+}
+
+message MsgUpdateHelloResponse { }
+
+message MsgDeleteHello {
+  string creator = 1;
+  uint64 id = 2;
+}
+
+message MsgDeleteHelloResponse { }
